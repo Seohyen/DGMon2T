@@ -13,6 +13,10 @@ public class ACharacterMove : MonoBehaviour
     [Header("move")]
     [SerializeField]
     private float spd = 3;
+
+    [Header("Platform")]
+    private GameObject platform;
+   
   
 
     void Awake()
@@ -25,6 +29,7 @@ public class ACharacterMove : MonoBehaviour
     private void Update()
     {
         Move();
+        InstantiatePlatform();
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -76,7 +81,13 @@ public class ACharacterMove : MonoBehaviour
 
     }
 
-
+    void InstantiatePlatform()
+    {
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            
+        }
+    }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
