@@ -73,7 +73,7 @@ public class ACharacterMove : MonoBehaviour
                 anim.SetBool("isJump", true);
                 isJumping = true;
 
-                GetComponent<Rigidbody2D>().AddForce(Vector3.up * 300f);
+                GetComponent<Rigidbody2D>().AddForce(Vector3.up * GameManager.Instance.jump);
 
             }
 

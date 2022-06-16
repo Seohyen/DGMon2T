@@ -8,10 +8,9 @@ public class BCharacterMove : MonoBehaviour
     private Rigidbody2D rigid;
     public Animator anim;
     SpriteRenderer rend;
+    
 
-    [Header("move")]
-    [SerializeField]
-    private float spd = 3;
+    
 
     
 
@@ -49,7 +48,7 @@ public class BCharacterMove : MonoBehaviour
                 anim.SetBool("isJump", true);
                 isJumping = true;
 
-                GetComponent<Rigidbody2D>().AddForce(Vector3.up * 300f);
+                GetComponent<Rigidbody2D>().AddForce(Vector3.up * GameManager.Instance.jump);
 
             }
 
@@ -61,7 +60,7 @@ public class BCharacterMove : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             anim.SetBool("isMove", true);
-            transform.Translate(-Vector2.right * spd * Time.deltaTime);
+            transform.Translate(-Vector2.right * GameManager.Instance.spd * Time.deltaTime) ;
             rend.flipX = true;
 
         }
@@ -70,7 +69,7 @@ public class BCharacterMove : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             anim.SetBool("isMove", true);
-            transform.Translate(Vector2.right * spd * Time.deltaTime);
+            transform.Translate(Vector2.right * GameManager.Instance.spd * Time.deltaTime);
             rend.flipX = false;
         }
 
