@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class BCharacterMove : MonoBehaviour
 {
     private bool isJumping;
@@ -13,6 +13,7 @@ public class BCharacterMove : MonoBehaviour
     [SerializeField]
     private float spd = 3;
 
+    
 
     void Awake()
     {
@@ -84,6 +85,21 @@ public class BCharacterMove : MonoBehaviour
         {
             isJumping = false;
             anim.SetBool("isJump", false);
+
+        }
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            GameManager.Instance.BHp -= 20;
+        }
+        else if (collision.gameObject.tag == "Trap")
+        {
+            GameManager.Instance.BHp -= 20;
+        }
+
+        if (GameManager.Instance.BHp <= 0)
+        {
+            SceneManager.LoadScene(2);
         }
     }
 

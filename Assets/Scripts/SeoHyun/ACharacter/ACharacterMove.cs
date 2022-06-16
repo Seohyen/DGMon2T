@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ACharacterMove : MonoBehaviour
 {
@@ -15,9 +16,13 @@ public class ACharacterMove : MonoBehaviour
     private float spd = 3;
 
     [Header("Platform")]
+    [SerializeField]
     private GameObject platform;
-   
-  
+
+    
+    
+    
+
 
     void Awake()
     {
@@ -36,6 +41,20 @@ public class ACharacterMove : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             anim.SetBool("  ", false);
+        }
+
+        if(collision.gameObject.tag == "Enemy")
+        {
+            GameManager.Instance.AHp -= 20;
+        }
+        else if(collision.gameObject.tag == "Trap")
+        {
+            GameManager.Instance.AHp -= 20;
+        }
+
+        if(GameManager.Instance.AHp <= 0)
+        {
+            SceneManager.LoadScene(2);
         }
     }
 
@@ -99,4 +118,5 @@ public class ACharacterMove : MonoBehaviour
         }
     }
 
+    
 }
