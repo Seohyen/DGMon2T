@@ -1875,7 +1875,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7c3b2c07cc2bc439cdf185694181b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 1490926972}
   spd: 3
   platform: {fileID: 0}
 --- !u!1 &1791754815
@@ -2271,7 +2270,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1869370579}
-  spd: 3
 --- !u!50 &1869370578
 Rigidbody2D:
   serializedVersion: 4
