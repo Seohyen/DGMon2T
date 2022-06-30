@@ -10,6 +10,8 @@ public class Timer : MonoBehaviour
     [SerializeField] bool Playing;
     private float timer;
     [SerializeField] int seconds;
+
+
     void Start()
     {
         
@@ -19,10 +21,10 @@ public class Timer : MonoBehaviour
         if(Playing == true)
         {
             timer -= Time.deltaTime;
-            seconds = Mathf.FloorToInt(timer +60);
+            seconds = Mathf.FloorToInt(timer +3);
             timerText.text = seconds.ToString();
         }
-        else if(timer == 0)
+        else if(timer <= 0)
         {
             Playing = false;
         }
