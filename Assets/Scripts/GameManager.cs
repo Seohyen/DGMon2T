@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,4 +24,24 @@ public class GameManager : MonoBehaviour
     }
 
     
+    public void HPOver()
+    {
+        if (AHp <= 0)
+        {
+            GameOver();
+        }
+
+    }
+
+    public IEnumerator SpeedUp(int speed, float time)
+    {
+        spd += speed;
+        yield return new WaitForSeconds(time);
+        spd -= speed;
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene(2);
+    }
 }

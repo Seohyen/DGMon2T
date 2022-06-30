@@ -8,7 +8,7 @@ public class TimerIncrease : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("PlayerA") || collision.gameObject.CompareTag("PlayerB"))
         {
             Timer.timer += TimeInc;
             Destroy(gameObject);

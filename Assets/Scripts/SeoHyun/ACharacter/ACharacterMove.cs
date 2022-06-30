@@ -113,20 +113,16 @@ public class ACharacterMove : MonoBehaviour
             anim.SetBool("isJump", false);
         }
 
-        if (collision.gameObject.tag == "Enemy")
-        {
-            GameManager.Instance.AHp -= 20;
-        }
-        else if (collision.gameObject.tag == "Trap")
+        if (collision.gameObject.tag == "Enemy"|| collision.gameObject.tag == "Trap")
         {
             GameManager.Instance.AHp -= 20;
         }
 
-        if (GameManager.Instance.AHp <= 0)
-        {
-            SceneManager.LoadScene(2);
-        }
+        
+
+
     }
-
     
+
+
 }
