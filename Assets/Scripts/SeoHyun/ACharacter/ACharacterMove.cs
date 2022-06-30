@@ -11,10 +11,6 @@ public class ACharacterMove : MonoBehaviour
     public Animator anim;
     SpriteRenderer rend;
 
-    [Header("move")]
-    [SerializeField]
-    private float spd = 3;
-
     [Header("Platform")]
     [SerializeField]
     private GameObject platform;
@@ -85,7 +81,7 @@ public class ACharacterMove : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             anim.SetBool("isMove", true);
-            transform.Translate(-Vector2.right * spd * Time.deltaTime);
+            transform.Translate(-Vector2.right * GameManager.Instance.spd * Time.deltaTime);
             rend.flipX = true;
 
         }
@@ -94,7 +90,7 @@ public class ACharacterMove : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             anim.SetBool("isMove", true);
-            transform.Translate(Vector2.right * spd * Time.deltaTime);
+            transform.Translate(Vector2.right * GameManager.Instance.spd * Time.deltaTime);
             rend.flipX = false;
         }
 
@@ -115,6 +111,20 @@ public class ACharacterMove : MonoBehaviour
         {
             isJumping = false;
             anim.SetBool("isJump", false);
+        }
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            GameManager.Instance.AHp -= 20;
+        }
+        else if (collision.gameObject.tag == "Trap")
+        {
+            GameManager.Instance.AHp -= 20;
+        }
+
+        if (GameManager.Instance.AHp <= 0)
+        {
+            SceneManager.LoadScene(2);
         }
     }
 
