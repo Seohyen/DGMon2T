@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedUp : MonoBehaviour
+public class JumpUp : MonoBehaviour
 {
-    [SerializeField] int speed;
+    [SerializeField] int jump;
     [SerializeField] float buffTime = 3f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("PlayerA") || collision.gameObject.CompareTag("PlayerB"))
+        if (collision.gameObject.CompareTag("PlayerA") || collision.gameObject.CompareTag("PlayerB"))
         {
-            if(GameManager.Instance.spd <= speed)
+            if (GameManager.Instance.spd <= jump)
             {
-                GameManager.Instance.spd += speed;
+                GameManager.Instance.jump += jump;
                 Invoke("invisible", 0f);
                 Invoke("destroyItem", buffTime);
             }
@@ -22,7 +22,7 @@ public class SpeedUp : MonoBehaviour
 
     void destroyItem()
     {
-        GameManager.Instance.spd -= speed;
+        GameManager.Instance.jump -= jump;
         Destroy(gameObject);
     }
 
