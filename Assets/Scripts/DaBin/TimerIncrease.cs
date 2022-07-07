@@ -10,7 +10,7 @@ public class TimerIncrease : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PlayerA") || collision.gameObject.CompareTag("PlayerB"))
         {
-            Timer.timer += TimeInc;
+            Timmmme.seconds += TimeInc;
             Destroy(gameObject);
         }
     }
