@@ -17,9 +17,14 @@ public class EnemySpawner : MonoBehaviour
             Instance = this;
         }
     }
+
+    private void Start()
+    {
+        StartCoroutine(DelayEnemy());
+    }
     private void Update()
     {
-        //StartCoroutine(DelayEnemy());
+        
     }
     private IEnumerator DelayEnemy()
     {
