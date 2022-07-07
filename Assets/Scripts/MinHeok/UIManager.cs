@@ -6,18 +6,27 @@ using DG.Tweening;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject optionMenu;
-    
-    private void Awake()
+    Sequence sequence;
+    float textDuration = 1.5f;
+    float iconScalelDuration = 0.5f;
+    Vector3 bigScale = new Vector3(1.0f, 1.0f, 1.0f);
+    Vector3 smallScale = new Vector3(0f, 0f, 0f);
+
+    private void Start()
     {
-        RectTransform rectTransform = GetComponent<RectTransform>();
+       
     }
     public void OnOptionMenu()
     {
+        DOTween.Sequence()
+        .Append(optionMenu.transform.DOScale(bigScale, iconScalelDuration).SetEase(Ease.OutExpo));
         optionMenu.SetActive(true);
-        optionMenu.transform.DOLocalMoveX(200, 2.5f).SetEase(Ease.OutElastic); 
+        
     }
     public void ExitOptionMenu()
     {
+        DOTween.Sequence()
+            .Append(optionMenu.transform.DOScale(smallScale, iconScalelDuration).SetEase(Ease.OutElastic));
         optionMenu.SetActive(false);
     }
 }
