@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
+using UnityEngine.UI;
 
 public class Scenemanager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject setTing;
+    float textDuration = 1.5f;
+    float iconScalelDuration = 0.5f;
+    Vector3 bigScale = new Vector3(1f, 1f, 0);
+    Vector3 smallScale = new Vector3(0.4f, 0.4f, 0);
+
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }
@@ -25,5 +31,12 @@ public class Scenemanager : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
+    }
+
+    public void OnSetting()
+    {
+        DOTween.Sequence()
+        .Append(setTing.transform.DOScale(smallScale, iconScalelDuration).SetEase(Ease.OutExpo));
+        setTing.SetActive(true);
     }
 }

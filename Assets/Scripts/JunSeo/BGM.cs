@@ -5,28 +5,17 @@ using UnityEngine.UI;
 
 public class BGM : MonoBehaviour
 {
-    [SerializeField] Slider BGMvolume;
-    [SerializeField] AudioSource audio;
+    [Header("음량")]
+    [SerializeField] AudioSource soundVolume;
 
-    private float BGvol;
+    [Header("음악")]
+    [SerializeField] AudioSource music;
 
-    private void Start()
+    [Header("효과음")]
+    [SerializeField] AudioSource soundEffect;
+
+    public void SetMusicVolume(float volume)
     {
-        BGvol = PlayerPrefs.GetFloat("BGvol", 1f);
-        BGMvolume.value = BGvol;
-        audio.volume = BGMvolume.value;
-        DontDestroyOnLoad(transform.gameObject);
-    }
-
-    private void Update()
-    {
-        SoundSlider();
-    }
-
-    public void SoundSlider()
-    {
-        audio.volume = BGMvolume.value;
-        BGvol = BGMvolume.value;
-        PlayerPrefs.SetFloat("BGvol", BGvol);
+        music.volume = volume;
     }
 }
