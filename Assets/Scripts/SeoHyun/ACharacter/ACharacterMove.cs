@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ACharacterMove : MonoBehaviour
 {
@@ -41,17 +40,15 @@ public class ACharacterMove : MonoBehaviour
 
         if(collision.gameObject.tag == "Enemy")
         {
-            GameManager.Instance.AHp -= 20;
+            GameManager.Instance.MinusAHP();
         }
         else if(collision.gameObject.tag == "Trap")
         {
-            GameManager.Instance.AHp -= 20;
+            GameManager.Instance.MinusAHP();
         }
 
-        if(GameManager.Instance.AHp <= 0)
-        {
-            SceneManager.LoadScene(2);
-        }
+       
+
     }
 
     /// <summary>
@@ -69,7 +66,7 @@ public class ACharacterMove : MonoBehaviour
                 anim.SetBool("isJump", true);
                 isJumping = true;
 
-                GetComponent<Rigidbody2D>().AddForce(Vector3.up * GameManager.Instance.jump);
+                rigid.AddForce(Vector3.up * 300);
 
             }
 

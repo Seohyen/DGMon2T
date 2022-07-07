@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -20,28 +19,23 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+        GameOver();
     }
 
-    
-    public void HPOver()
+    public void MinusAHP()
     {
-        if (AHp <= 0)
-        {
-            GameOver();
-        }
-
+     AHp -= 20;
     }
-
-    public IEnumerator SpeedUp(int speed, float time)
+        public void MinusBHP()
     {
-        spd += speed;
-        yield return new WaitForSeconds(time);
-        spd -= speed;
+     BHp -= 20;
     }
 
     public void GameOver()
     {
-        SceneManager.LoadScene(2);
+        if (AHp <= 0|| BHp<=0)
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 }
