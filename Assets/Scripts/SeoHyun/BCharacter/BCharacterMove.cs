@@ -89,17 +89,13 @@ public class BCharacterMove : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
-            GameManager.Instance.BHp -= 20;
+            GameManager.Instance.MinusBHP();
         }
         else if (collision.gameObject.tag == "Trap")
         {
-            GameManager.Instance.BHp -= 20;
+            GameManager.Instance.MinusBHP();
         }
 
-        if (GameManager.Instance.BHp <= 0)
-        {
-            SceneManager.LoadScene(2);
-        }
+
     }
-
 }
