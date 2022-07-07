@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ACharacterMove : MonoBehaviour
 {
@@ -10,10 +9,6 @@ public class ACharacterMove : MonoBehaviour
     private Rigidbody2D rigid;
     public Animator anim;
     SpriteRenderer rend;
-
-    [Header("move")]
-    [SerializeField]
-    private float spd = 3;
 
     [Header("Platform")]
     [SerializeField]
@@ -45,17 +40,15 @@ public class ACharacterMove : MonoBehaviour
 
         if(collision.gameObject.tag == "Enemy")
         {
-            GameManager.Instance.AHp -= 20;
+            GameManager.Instance.MinusAHP();
         }
         else if(collision.gameObject.tag == "Trap")
         {
-            GameManager.Instance.AHp -= 20;
+            GameManager.Instance.MinusAHP();
         }
 
-        if(GameManager.Instance.AHp <= 0)
-        {
-            SceneManager.LoadScene(2);
-        }
+       
+
     }
 
     /// <summary>
@@ -73,7 +66,7 @@ public class ACharacterMove : MonoBehaviour
                 anim.SetBool("isJump", true);
                 isJumping = true;
 
-                GetComponent<Rigidbody2D>().AddForce(Vector3.up * GameManager.Instance.jump);
+                rigid.AddForce(Vector3.up * 300);
 
             }
 
@@ -85,7 +78,7 @@ public class ACharacterMove : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             anim.SetBool("isMove", true);
-            transform.Translate(-Vector2.right * spd * Time.deltaTime);
+            transform.Translate(-Vector2.right * GameManager.Instance.spd * Time.deltaTime);
             rend.flipX = true;
 
         }
@@ -94,7 +87,7 @@ public class ACharacterMove : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             anim.SetBool("isMove", true);
-            transform.Translate(Vector2.right * spd * Time.deltaTime);
+            transform.Translate(Vector2.right * GameManager.Instance.spd * Time.deltaTime);
             rend.flipX = false;
         }
 
@@ -116,7 +109,17 @@ public class ACharacterMove : MonoBehaviour
             isJumping = false;
             anim.SetBool("isJump", false);
         }
-    }
 
+        if (collision.gameObject.tag == "Enemy"|| collision.gameObject.tag == "Trap")
+        {
+            GameManager.Instance.AHp -= 20;
+        }
+
+        
+
+
+    }
     
+
+
 }
