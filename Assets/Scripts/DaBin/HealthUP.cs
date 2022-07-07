@@ -11,10 +11,12 @@ public class HealthUP : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerA"))
         {
             GameManager.Instance.AHp += Health;
+            Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("PlayerB"))
         {
             GameManager.Instance.BHp += Health;
+            Destroy(gameObject);
         }
     }
 }

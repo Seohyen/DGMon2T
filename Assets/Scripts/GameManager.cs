@@ -30,14 +30,6 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
-
-    }
-
-    public IEnumerator SpeedUp(int speed, float time)
-    {
-        spd += speed;
-        yield return new WaitForSeconds(time);
-        spd -= speed;
     }
 
     public void GameOver()
