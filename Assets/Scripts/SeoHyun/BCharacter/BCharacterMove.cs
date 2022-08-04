@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class BCharacterMove : MonoBehaviour
 {
+    private bool isMove;
     private bool isJumping;
     private Rigidbody2D rigid;
     public Animator anim;

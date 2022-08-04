@@ -1893,8 +1893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1490926972}
-  spd: 3
-  platform: {fileID: 0}
+  platform: {fileID: 1918749317095269171, guid: 9d00303acebda22478d09771dc07336b, type: 3}
 --- !u!1 &1791754815
 GameObject:
   m_ObjectHideFlags: 0

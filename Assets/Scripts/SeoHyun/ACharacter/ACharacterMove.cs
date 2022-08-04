@@ -5,6 +5,7 @@ using UnityEngine;
 public class ACharacterMove : MonoBehaviour
 {
 
+    private bool isMove;
     private bool isJumping;
     private Rigidbody2D rigid;
     public Animator anim;
