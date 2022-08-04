@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] TMP_Text timerText;
     [SerializeField] bool Playing;
-    private float timer;
+    public static float timer;
     [SerializeField] int seconds;
     void Start()
     {

@@ -7,16 +7,18 @@ TagManager:
   - Ground
   - Enemy
   - Trap
+  - PlayerA
+  - PlayerB
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
+  - Enemy
   - 
-  - 
-  - 
+  - Wall
   - 
   - 
   - 
