@@ -651,12 +651,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712847847}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.67, y: -1.42, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.53798, y: 3.440413, z: 10.460856}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 751467588}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &712847851
 BoxCollider2D:
@@ -792,6 +792,7 @@ Transform:
   m_Children:
   - {fileID: 1956880368}
   - {fileID: 1768151920}
+  - {fileID: 712847850}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1826,7 +1827,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1752884553}
+  platformspd: 3
+  isPlatfrom: 0
   platform: {fileID: 1127235472}
+  platformPosition: {fileID: 0}
+  isPlatform: 0
 --- !u!50 &1752884551
 Rigidbody2D:
   serializedVersion: 4
