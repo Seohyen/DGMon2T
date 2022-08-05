@@ -11,10 +11,15 @@ public class ACharacterMove : MonoBehaviour
     public Animator anim;
     SpriteRenderer rend;
 
+    public float platformspd = 3f;
+
+    public bool isPlatfrom = false;
+
     [Header("Platform")]
     [SerializeField]
     private GameObject platform;
-
+    public GameObject platformPosition;
+    
     
     
     
@@ -30,8 +35,10 @@ public class ACharacterMove : MonoBehaviour
     private void Update()
     {
         Move();
-        InstantiatePlatform();
+        Platform();
     }
+
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
@@ -67,7 +74,7 @@ public class ACharacterMove : MonoBehaviour
                 anim.SetBool("isJump", true);
                 isJumping = true;
 
-                rigid.AddForce(Vector3.up * 300);
+                rigid.AddForce(Vector3.up * GameManager.Instance.jump);
 
             }
 
@@ -80,7 +87,8 @@ public class ACharacterMove : MonoBehaviour
         {
             anim.SetBool("isMove", true);
             transform.Translate(-Vector2.right * GameManager.Instance.spd * Time.deltaTime);
-            rend.flipX = true;
+            transform.localScale = new Vector3(-0.3f, 0.3f, 1);
+
 
         }
 
@@ -89,18 +97,41 @@ public class ACharacterMove : MonoBehaviour
         {
             anim.SetBool("isMove", true);
             transform.Translate(Vector2.right * GameManager.Instance.spd * Time.deltaTime);
-            rend.flipX = false;
+            transform.rotation = Quaternion.identity;
+            transform.localScale = new Vector3(0.3f, 0.3f, 1);
+
+
         }
 
     }
 
-    void InstantiatePlatform()
+
+    public void Platform()
     {
-        if(Input.GetKeyDown(KeyCode.S))
+
+        if (!isPlatform)
         {
-            
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                Instantiate<GameObject>(platform, platformPosition.transform.position, platformPosition.transform.rotation);
+                isPlatform = true;
+            }
+        }
+
+        if(isPlatform)
+        {
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                isPlatform = false;
+            }
         }
     }
+
+
+    public bool isPlatform = false;
+
+
+
 
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -9,6 +9,11 @@ TagManager:
   - Trap
   - PlayerA
   - PlayerB
+  - Stage1
+  - Stage2
+  - Stage3
+  - Stage4
+  - Platform
   layers:
   - Default
   - TransparentFX

@@ -62,7 +62,7 @@ public class BCharacterMove : MonoBehaviour
         {
             anim.SetBool("isMove", true);
             transform.Translate(-Vector2.right * GameManager.Instance.spd * Time.deltaTime) ;
-            rend.flipX = true;
+          transform.localScale = new Vector3(-0.3f, 0.3f, 1);
 
         }
 
@@ -71,7 +71,7 @@ public class BCharacterMove : MonoBehaviour
         {
             anim.SetBool("isMove", true);
             transform.Translate(Vector2.right * GameManager.Instance.spd * Time.deltaTime);
-            rend.flipX = false;
+            transform.localScale = new Vector3(0.3f, 0.3f, 1);
         }
 
     }
