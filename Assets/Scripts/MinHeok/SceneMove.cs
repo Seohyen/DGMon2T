@@ -13,22 +13,22 @@ public class SceneMove : MonoBehaviour
 
     public void Stage1()
     {
-        SceneManager.LoadScene("Stage1");
+        SceneManager.LoadScene(2);
     }
     public void Stage2()
     {
-        SceneManager.LoadScene("Stage2");
+        SceneManager.LoadScene(3);
     }
     public void Stage3()
     {
-        SceneManager.LoadScene("Stage3");
+        SceneManager.LoadScene(4);
     }
     public void Stage4()
     {
-        SceneManager.LoadScene("Stage4");
+        SceneManager.LoadScene(5);
     }
     public void manyStage()
     {
-        SceneManager.LoadScene("MinHeok");
+        SceneManager.LoadScene(6);
     }
 }
