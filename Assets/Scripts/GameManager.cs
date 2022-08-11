@@ -20,15 +20,17 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         GameOver();
+
+        StageClear();
     }
 
     public void MinusAHP()
     {
-     AHp -= 20;
+     AHp -= 100;
     }
         public void MinusBHP()
     {
-     BHp -= 20;
+     BHp -= 100;
     }
 
     public void GameOver()
@@ -38,4 +40,36 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(2);
         }
     }
+
+
+    public bool isSwitch1 = false;
+    public bool isSwitch2 = false;
+    public bool isSwitch3 = false;
+    public bool isSwitch4 = false;
+    
+
+    private bool isClear = false;
+    private bool isStageClear = false;
+
+
+    void StageClear()
+    {
+
+        if (isClear) return;
+        if (isStageClear) return;
+
+        if (isSwitch1 && isSwitch2)
+        {
+            isStageClear = true;
+            SceneManager.LoadScene(4);
+        }
+
+
+        if (isSwitch3 && isSwitch4)
+        {
+            isClear = true;
+            SceneManager.LoadScene(5);
+        }
+    }
+    
 }
